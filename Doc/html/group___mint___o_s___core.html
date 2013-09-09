@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.4"/>
+<title>Mint OS: 1. 内核调度</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Mint OS
+   &#160;<span id="projectnumber">V0.1</span>
+   </div>
+   <div id="projectbrief">Mint OS is born of Cortex-M3.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.4 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="modules.html"><span>模块</span></a></li>
+      <li><a href="annotated.html"><span>结构体</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___mint___o_s___core.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全部</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>结构体</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>文件</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>函数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>变量</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>类型定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>枚举</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>枚举值</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>宏定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>组</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">结构体</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle">
+<div class="title">1. 内核调度</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Mint OS的内核调度函数和变量。  
+<a href="#details">更多...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+结构体</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structm__tcb.html">m_tcb</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mint OS 任务控制块（TCB）类型定义  <a href="structm__tcb.html#details">更多...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structm__list.html">m_list</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">延时/空闲/阻塞任务链表的表头  <a href="structm__list.html#details">更多...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:gac95881f06ed79b7bae51233c63000616"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac95881f06ed79b7bae51233c63000616"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SYS_TASKS</b>&#160;&#160;&#160;2			/*&lt;	 系统任务数目，最高优先级-0和最低优先级任务作为系统保留 */</td></tr>
+<tr class="separator:gac95881f06ed79b7bae51233c63000616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1a5b1011baa69070c3fc1b46b8b21d1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gab1a5b1011baa69070c3fc1b46b8b21d1">N_TASKS</a>&#160;&#160;&#160;(<a class="el" href="group___mint___o_s___task.html#gab1c9e6145c72fc4536345fbdd168ca34">USER_TASKS</a>+SYS_TASKS)</td></tr>
+<tr class="separator:gab1a5b1011baa69070c3fc1b46b8b21d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa3f46abe4a3b45c2d13bbd92bdba022"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gaaa3f46abe4a3b45c2d13bbd92bdba022">IDLE_PRIO</a>&#160;&#160;&#160;(<a class="el" href="group___mint___o_s___core.html#gab1a5b1011baa69070c3fc1b46b8b21d1">N_TASKS</a>-1)</td></tr>
+<tr class="separator:gaaa3f46abe4a3b45c2d13bbd92bdba022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga206003595e21cfafb708207714207c2f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#ga206003595e21cfafb708207714207c2f">IDLE_STK_SIZE</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:ga206003595e21cfafb708207714207c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:gaea227108b8a0683a6614f96a48d5655d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaea227108b8a0683a6614f96a48d5655d"></a>
+typedef struct <a class="el" href="structm__tcb.html">m_tcb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gaea227108b8a0683a6614f96a48d5655d">m_tcb</a></td></tr>
+<tr class="memdesc:gaea227108b8a0683a6614f96a48d5655d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mint OS 任务控制块（TCB）类型定义 <br/></td></tr>
+<tr class="separator:gaea227108b8a0683a6614f96a48d5655d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:ga5918e195ec3615db32bf306d2d7d12e9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#ga5918e195ec3615db32bf306d2d7d12e9">m_status</a> { <br/>
+&#160;&#160;<a class="el" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9ad6137abebe4fdc59e2f0f2c84bdbe3fa">SLEEP</a> = 0, 
+<a class="el" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a6564f2f3e15be06b670547bbcaaf0798">READY</a> = 1, 
+<a class="el" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a1061be6c3fb88d32829cba6f6b2be304">RUNNING</a> = 2, 
+<a class="el" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a65c9241abfbabaf98e742568ffef517e">DELAYED</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9aca31e5168f5b741f9e55de5628d9f2f3">ISR</a> = 4, 
+<a class="el" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a376c1b6a3f75d283a2efacf737438d61">BLOCKED</a> = 5
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga5918e195ec3615db32bf306d2d7d12e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">任务控制块（RCB）的属性之一：任务的状态，目前还没有用上， 留作以后扩展用。  <a href="group___mint___o_s___core.html#ga5918e195ec3615db32bf306d2d7d12e9">更多...</a><br/></td></tr>
+<tr class="separator:ga5918e195ec3615db32bf306d2d7d12e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga581861ba093d3ac98554cd5efa8f66f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#ga581861ba093d3ac98554cd5efa8f66f6">m_idle_task</a> (void *pdata)</td></tr>
+<tr class="memdesc:ga581861ba093d3ac98554cd5efa8f66f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">空闲任务实体代码  <a href="#ga581861ba093d3ac98554cd5efa8f66f6">更多...</a><br/></td></tr>
+<tr class="separator:ga581861ba093d3ac98554cd5efa8f66f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafbd3f5df521218d528ae3f1a80413930"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gafbd3f5df521218d528ae3f1a80413930">m_sched</a> (void)</td></tr>
+<tr class="memdesc:gafbd3f5df521218d528ae3f1a80413930"><td class="mdescLeft">&#160;</td><td class="mdescRight">系统最核心的函数之一：任务调度函数，总是去调度就绪 任务表中优先级最高的任务。简要步骤如下：  <a href="#gafbd3f5df521218d528ae3f1a80413930">更多...</a><br/></td></tr>
+<tr class="separator:gafbd3f5df521218d528ae3f1a80413930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1cfd88fe1b2942c0b4fa676c71278a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gab1cfd88fe1b2942c0b4fa676c71278a7">m_init</a> (void)</td></tr>
+<tr class="memdesc:gab1cfd88fe1b2942c0b4fa676c71278a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">系统初始化函数，一般位于bsp_init()之后，空闲任务在 此函数被创建。  <a href="#gab1cfd88fe1b2942c0b4fa676c71278a7">更多...</a><br/></td></tr>
+<tr class="separator:gab1cfd88fe1b2942c0b4fa676c71278a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaae465338c3f78114cf562d54bb8e4702"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gaae465338c3f78114cf562d54bb8e4702">m_start</a> (void)</td></tr>
+<tr class="memdesc:gaae465338c3f78114cf562d54bb8e4702"><td class="mdescLeft">&#160;</td><td class="mdescRight">系统初始启动函数，一般位于TaskStart（任务启动任务）被 创建之后调用，简要步骤如下：  <a href="#gaae465338c3f78114cf562d54bb8e4702">更多...</a><br/></td></tr>
+<tr class="separator:gaae465338c3f78114cf562d54bb8e4702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a42b228ec1ff3bb1b109a6b7d0f8c0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#ga5a42b228ec1ff3bb1b109a6b7d0f8c0b">m_enter_int</a> (void)</td></tr>
+<tr class="memdesc:ga5a42b228ec1ff3bb1b109a6b7d0f8c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">进入中断之后可调用，但如若调用，需要与m_exit_int 配对使用。  <a href="#ga5a42b228ec1ff3bb1b109a6b7d0f8c0b">更多...</a><br/></td></tr>
+<tr class="separator:ga5a42b228ec1ff3bb1b109a6b7d0f8c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga665967eae71ffec258367cbb92758758"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#ga665967eae71ffec258367cbb92758758">m_exit_int</a> (void)</td></tr>
+<tr class="memdesc:ga665967eae71ffec258367cbb92758758"><td class="mdescLeft">&#160;</td><td class="mdescRight">中断退出函数，与m_enter_int配对使用  <a href="#ga665967eae71ffec258367cbb92758758">更多...</a><br/></td></tr>
+<tr class="separator:ga665967eae71ffec258367cbb92758758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ga10a06238b9744d26d81bc442bd04e31a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__tcb.html">m_tcb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#ga10a06238b9744d26d81bc442bd04e31a">tcb</a> [<a class="el" href="group___mint___o_s___core.html#gab1a5b1011baa69070c3fc1b46b8b21d1">N_TASKS</a>]</td></tr>
+<tr class="separator:ga10a06238b9744d26d81bc442bd04e31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03617556e2c452a6c0cf3042f52e444e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__tcb.html">m_tcb</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#ga03617556e2c452a6c0cf3042f52e444e">m_cur_tcb</a></td></tr>
+<tr class="separator:ga03617556e2c452a6c0cf3042f52e444e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3528ce6120d20a5fa5fe7f8a227c46de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__tcb.html">m_tcb</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#ga3528ce6120d20a5fa5fe7f8a227c46de">m_high_tcb</a></td></tr>
+<tr class="separator:ga3528ce6120d20a5fa5fe7f8a227c46de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad57193ee8242fb87398ca05e5d539002"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gad57193ee8242fb87398ca05e5d539002">m_cur_prio</a></td></tr>
+<tr class="separator:gad57193ee8242fb87398ca05e5d539002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac6e7d5c6ec865c63f40d4b4c4e4a1819"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gac6e7d5c6ec865c63f40d4b4c4e4a1819">m_high_prio</a></td></tr>
+<tr class="separator:gac6e7d5c6ec865c63f40d4b4c4e4a1819"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab323d8f4773760d4c38e238068a6b149"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gab323d8f4773760d4c38e238068a6b149">m_int_nest</a></td></tr>
+<tr class="separator:gab323d8f4773760d4c38e238068a6b149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c23be573fb0d1612bf2f9f016680db2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#ga3c23be573fb0d1612bf2f9f016680db2">m_time</a></td></tr>
+<tr class="separator:ga3c23be573fb0d1612bf2f9f016680db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8d0de177c57efa897a1fc219eff039c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gad8d0de177c57efa897a1fc219eff039c">m_idle_stk</a> [<a class="el" href="group___mint___o_s___core.html#ga206003595e21cfafb708207714207c2f">IDLE_STK_SIZE</a>]</td></tr>
+<tr class="separator:gad8d0de177c57efa897a1fc219eff039c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba37c017b26e28426f0abcdea442662d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__list.html">m_list</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gaba37c017b26e28426f0abcdea442662d">m_delayed_dlist</a></td></tr>
+<tr class="separator:gaba37c017b26e28426f0abcdea442662d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabcb53b48d3c1363b2fde6dacd43c70a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__list.html">m_list</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gabcb53b48d3c1363b2fde6dacd43c70a1">m_free_ldist</a></td></tr>
+<tr class="separator:gabcb53b48d3c1363b2fde6dacd43c70a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab096086e13a9e253ab56b4cd60558c28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__list.html">m_list</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mint___o_s___core.html#gab096086e13a9e253ab56b4cd60558c28">m_ready_dlist</a></td></tr>
+<tr class="separator:gab096086e13a9e253ab56b4cd60558c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<p>Mint OS的内核调度函数和变量。 </p>
+<p>对外服务API</p>
+<p>对内服务API</p>
+<h2 class="groupheader">宏定义说明</h2>
+<a class="anchor" id="gaaa3f46abe4a3b45c2d13bbd92bdba022"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IDLE_PRIO&#160;&#160;&#160;(<a class="el" href="group___mint___o_s___core.html#gab1a5b1011baa69070c3fc1b46b8b21d1">N_TASKS</a>-1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>空闲任务，即最低优先级任务，用于空转或低功耗设置 </p>
+
+</div>
+</div>
+<a class="anchor" id="ga206003595e21cfafb708207714207c2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IDLE_STK_SIZE&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>空闲任务私有堆栈大小 </p>
+
+</div>
+</div>
+<a class="anchor" id="gab1a5b1011baa69070c3fc1b46b8b21d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define N_TASKS&#160;&#160;&#160;(<a class="el" href="group___mint___o_s___task.html#gab1c9e6145c72fc4536345fbdd168ca34">USER_TASKS</a>+SYS_TASKS)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>总的任务数目，由系统任务和用户任务两部分构成 </p>
+
+</div>
+</div>
+<h2 class="groupheader">枚举类型说明</h2>
+<a class="anchor" id="ga5918e195ec3615db32bf306d2d7d12e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___mint___o_s___core.html#ga5918e195ec3615db32bf306d2d7d12e9">m_status</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>任务控制块（RCB）的属性之一：任务的状态，目前还没有用上， 留作以后扩展用。 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga5918e195ec3615db32bf306d2d7d12e9ad6137abebe4fdc59e2f0f2c84bdbe3fa"></a>SLEEP</em>&nbsp;</td><td class="fielddoc">
+<p>休眠态 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5918e195ec3615db32bf306d2d7d12e9a6564f2f3e15be06b670547bbcaaf0798"></a>READY</em>&nbsp;</td><td class="fielddoc">
+<p>准备态 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5918e195ec3615db32bf306d2d7d12e9a1061be6c3fb88d32829cba6f6b2be304"></a>RUNNING</em>&nbsp;</td><td class="fielddoc">
+<p>运行态 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5918e195ec3615db32bf306d2d7d12e9a65c9241abfbabaf98e742568ffef517e"></a>DELAYED</em>&nbsp;</td><td class="fielddoc">
+<p>延迟态 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5918e195ec3615db32bf306d2d7d12e9aca31e5168f5b741f9e55de5628d9f2f3"></a>ISR</em>&nbsp;</td><td class="fielddoc">
+<p>中断态 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5918e195ec3615db32bf306d2d7d12e9a376c1b6a3f75d283a2efacf737438d61"></a>BLOCKED</em>&nbsp;</td><td class="fielddoc">
+<p>阻塞态 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a class="anchor" id="ga5a42b228ec1ff3bb1b109a6b7d0f8c0b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void m_enter_int </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>进入中断之后可调用，但如若调用，需要与m_exit_int 配对使用。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga665967eae71ffec258367cbb92758758"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void m_exit_int </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>中断退出函数，与m_enter_int配对使用 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga581861ba093d3ac98554cd5efa8f66f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void m_idle_task </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pdata</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>空闲任务实体代码 </p>
+<p>空闲任务的任务代码</p>
+<dl class="section note"><dt>注解</dt><dd>在这里面，可以自行设定低功耗，但是不能被删除 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pdata,:</td><td>可选参数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gab1cfd88fe1b2942c0b4fa676c71278a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void m_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>系统初始化函数，一般位于bsp_init()之后，空闲任务在 此函数被创建。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gafbd3f5df521218d528ae3f1a80413930"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void m_sched </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>系统最核心的函数之一：任务调度函数，总是去调度就绪 任务表中优先级最高的任务。简要步骤如下： </p>
+<pre class="fragment">1. 寻找就续表中的最高优先级
+    2. 如果比当前优先级更高，则
+        2.1 设置最该优先级以及当前优先级栈地址
+        2.2 切换任务
+</pre> <dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaae465338c3f78114cf562d54bb8e4702"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void m_start </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>系统初始启动函数，一般位于TaskStart（任务启动任务）被 创建之后调用，简要步骤如下： </p>
+<pre class="fragment">1. 获取最高优先级任务
+2. 设置最该优先级以及当前优先级栈地址
+3. 调用m_start_high启动Mint OS
+</pre> <dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">无</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">变量说明</h2>
+<a class="anchor" id="gad57193ee8242fb87398ca05e5d539002"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> uint32_t m_cur_prio</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>当前任务优先级 </p>
+
+</div>
+</div>
+<a class="anchor" id="ga03617556e2c452a6c0cf3042f52e444e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__tcb.html">m_tcb</a>* m_cur_tcb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>当前任务tcb指针 </p>
+
+</div>
+</div>
+<a class="anchor" id="gaba37c017b26e28426f0abcdea442662d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__list.html">m_list</a> m_delayed_dlist</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>延时任务链表 </p>
+
+</div>
+</div>
+<a class="anchor" id="gabcb53b48d3c1363b2fde6dacd43c70a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__list.html">m_list</a> m_free_ldist</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>空闲任务链表 </p>
+
+</div>
+</div>
+<a class="anchor" id="gac6e7d5c6ec865c63f40d4b4c4e4a1819"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> uint32_t m_high_prio</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>最高任务优先级 </p>
+
+</div>
+</div>
+<a class="anchor" id="ga3528ce6120d20a5fa5fe7f8a227c46de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__tcb.html">m_tcb</a>* m_high_tcb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>最高任务tcb指针，在上下文切换时，与前者不同 </p>
+
+</div>
+</div>
+<a class="anchor" id="gad8d0de177c57efa897a1fc219eff039c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> uint32_t m_idle_stk[<a class="el" href="group___mint___o_s___core.html#ga206003595e21cfafb708207714207c2f">IDLE_STK_SIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>空闲任务的私有堆栈空间 </p>
+
+</div>
+</div>
+<a class="anchor" id="gab323d8f4773760d4c38e238068a6b149"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> uint32_t m_int_nest</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>中断嵌套层数 </p>
+
+</div>
+</div>
+<a class="anchor" id="gab096086e13a9e253ab56b4cd60558c28"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__list.html">m_list</a> m_ready_dlist</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>就绪任务链表 </p>
+
+</div>
+</div>
+<a class="anchor" id="ga3c23be573fb0d1612bf2f9f016680db2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> uint32_t m_time</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>系统运行“滴答”数 </p>
+
+</div>
+</div>
+<a class="anchor" id="ga10a06238b9744d26d81bc442bd04e31a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">GLOBAL</a> <a class="el" href="structm__tcb.html">m_tcb</a> tcb[<a class="el" href="group___mint___o_s___core.html#gab1a5b1011baa69070c3fc1b46b8b21d1">N_TASKS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>所有任务的任务控制块 </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">生成于 2013年 九月 9日 星期一 10:36:26 , 为 Mint OS使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
+  </ul>
+</div>
+</body>
+</html>
