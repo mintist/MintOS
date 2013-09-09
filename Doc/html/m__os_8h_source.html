@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.4"/>
+<title>Mint OS: MintOS/m_os.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Mint OS
+   &#160;<span id="projectnumber">V0.1</span>
+   </div>
+   <div id="projectbrief">Mint OS is born of Cortex-M3.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.4 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="modules.html"><span>模块</span></a></li>
+      <li><a href="annotated.html"><span>结构体</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>全局定义</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('m__os_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全部</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>结构体</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>文件</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>函数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>变量</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>类型定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>枚举</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>枚举值</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>宏定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>组</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">m_os.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="m__os_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/* Define to prevent recursive inclusion -------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef _M_OS_H</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _M_OS_H</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/* Includes ------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;stm32f10x.h&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;m_port.h&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="m__os__cfg_8h.html" title="此文件包含：关于Mint OS算法选择的所有宏配置选项 ">m_os_cfg.h</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#ifdef GLOBAL_VAR</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GLOBAL</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645">   43</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GLOBAL extern</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="group___mint___o_s___task.html#gab1c9e6145c72fc4536345fbdd168ca34">   55</a></span>&#160;<span class="preprocessor">#define USER_TASKS      200             </span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="group___mint___o_s___task.html#ga28e504826d05abef88141f2f038376b2">   60</a></span>&#160;<span class="preprocessor">typedef void (*m_task)(void* pdata);</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#ga5918e195ec3615db32bf306d2d7d12e9">   74</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9ad6137abebe4fdc59e2f0f2c84bdbe3fa">   75</a></span>&#160;    <a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9ad6137abebe4fdc59e2f0f2c84bdbe3fa">SLEEP</a>   =   0,              </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a6564f2f3e15be06b670547bbcaaf0798">   76</a></span>&#160;    <a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a6564f2f3e15be06b670547bbcaaf0798">READY</a>   =   1,              </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a1061be6c3fb88d32829cba6f6b2be304">   77</a></span>&#160;    <a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a1061be6c3fb88d32829cba6f6b2be304">RUNNING</a> =   2,              </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a65c9241abfbabaf98e742568ffef517e">   78</a></span>&#160;    <a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a65c9241abfbabaf98e742568ffef517e">DELAYED</a> =   3,              </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9aca31e5168f5b741f9e55de5628d9f2f3">   79</a></span>&#160;    <a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9aca31e5168f5b741f9e55de5628d9f2f3">ISR</a>     =   4,              </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a376c1b6a3f75d283a2efacf737438d61">   80</a></span>&#160;    <a class="code" href="group___mint___o_s___core.html#gga5918e195ec3615db32bf306d2d7d12e9a376c1b6a3f75d283a2efacf737438d61">BLOCKED</a> =   5               </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}<a class="code" href="group___mint___o_s___core.html#ga5918e195ec3615db32bf306d2d7d12e9" title="任务控制块（RCB）的属性之一：任务的状态，目前还没有用上， 留作以后扩展用。 ">m_status</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="structm__tcb.html">   87</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structm__tcb.html" title="Mint OS 任务控制块（TCB）类型定义 ">m_tcb</a>{</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="structm__tcb.html#a80a5f386a0f7e3ce5babe362e78ac70e">   88</a></span>&#160;    uint32_t*   <a class="code" href="structm__tcb.html#a80a5f386a0f7e3ce5babe362e78ac70e">sp</a>;              </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#if TICK_TIME_SCHED_DLIST</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="structm__tcb.html#a99f13d5b84ed51d001f5f816ece037f2">   92</a></span>&#160;<span class="preprocessor"></span>    <span class="keyword">struct </span><a class="code" href="structm__tcb.html" title="Mint OS 任务控制块（TCB）类型定义 ">m_tcb</a>* <a class="code" href="structm__tcb.html#a99f13d5b84ed51d001f5f816ece037f2">prev</a>;         </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#if TICK_TIME_SCHED_DLIST || TICK_TIME_SCHED_LIST</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="structm__tcb.html#acbb9ae4cd36938831d5ff63cce5f4aff">   94</a></span>&#160;<span class="preprocessor"></span>    <span class="keyword">struct </span><a class="code" href="structm__tcb.html" title="Mint OS 任务控制块（TCB）类型定义 ">m_tcb</a>* <a class="code" href="structm__tcb.html#acbb9ae4cd36938831d5ff63cce5f4aff">next</a>;         </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="structm__tcb.html#ab3507a48ae247ff252738ca350810b21">   98</a></span>&#160;    uint32_t    <a class="code" href="structm__tcb.html#ab3507a48ae247ff252738ca350810b21">ticks</a>;          </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="structm__tcb.html#a6871573fefee3ad102e26a09e7a2f493">   99</a></span>&#160;    uint32_t    <a class="code" href="structm__tcb.html#a6871573fefee3ad102e26a09e7a2f493">prio</a>;           </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="structm__tcb.html#addada3e47c68d97ecfe8841cb4aae30c">  100</a></span>&#160;    <a class="code" href="group___mint___o_s___core.html#ga5918e195ec3615db32bf306d2d7d12e9" title="任务控制块（RCB）的属性之一：任务的状态，目前还没有用上， 留作以后扩展用。 ">m_status</a>    <a class="code" href="structm__tcb.html#addada3e47c68d97ecfe8841cb4aae30c">status</a>;         </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}<a class="code" href="group___mint___o_s___core.html#gaea227108b8a0683a6614f96a48d5655d" title="Mint OS 任务控制块（TCB）类型定义 ">m_tcb</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="structm__list.html">  106</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="structm__list.html#a70eaf8bad23e5394ededdd02507072e9">  107</a></span>&#160;    <a class="code" href="structm__tcb.html" title="Mint OS 任务控制块（TCB）类型定义 ">m_tcb</a>*      <a class="code" href="structm__list.html#a70eaf8bad23e5394ededdd02507072e9">head</a>;           </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="structm__list.html#ab2c6b258f02add8fdf4cfc7c371dd772">  108</a></span>&#160;    uint32_t    <a class="code" href="structm__list.html#ab2c6b258f02add8fdf4cfc7c371dd772">size</a>;           </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}<a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#define SYS_TASKS   2           </span><span class="comment">/*&lt;  系统任务数目，最高优先级-0和最低优先级任务作为系统保留 */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gab1a5b1011baa69070c3fc1b46b8b21d1">  122</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define N_TASKS     (USER_TASKS+SYS_TASKS)  </span></div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#ga10a06238b9744d26d81bc442bd04e31a">  123</a></span>&#160;<span class="preprocessor">GLOBAL m_tcb tcb[N_TASKS];                  </span></div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#ga03617556e2c452a6c0cf3042f52e444e">  125</a></span>&#160;<span class="preprocessor">GLOBAL m_tcb*   m_cur_tcb;                  </span></div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#ga3528ce6120d20a5fa5fe7f8a227c46de">  126</a></span>&#160;<span class="preprocessor">GLOBAL m_tcb*   m_high_tcb;                 </span></div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gad57193ee8242fb87398ca05e5d539002">  128</a></span>&#160;<span class="preprocessor">GLOBAL uint32_t m_cur_prio;                 </span></div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gac6e7d5c6ec865c63f40d4b4c4e4a1819">  129</a></span>&#160;<span class="preprocessor">GLOBAL uint32_t m_high_prio;                </span></div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gab323d8f4773760d4c38e238068a6b149">  131</a></span>&#160;<span class="preprocessor">GLOBAL uint32_t m_int_nest;                 </span></div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#ga3c23be573fb0d1612bf2f9f016680db2">  133</a></span>&#160;<span class="preprocessor">GLOBAL uint32_t m_time;                     </span></div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gaaa3f46abe4a3b45c2d13bbd92bdba022">  135</a></span>&#160;<span class="preprocessor">#define IDLE_PRIO (N_TASKS-1)               </span></div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#ga206003595e21cfafb708207714207c2f">  136</a></span>&#160;<span class="preprocessor">#define IDLE_STK_SIZE   100                 </span></div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gad8d0de177c57efa897a1fc219eff039c">  137</a></span>&#160;<span class="preprocessor">GLOBAL uint32_t m_idle_stk[IDLE_STK_SIZE];  </span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">void m_idle_task(void* pdata);              </span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">#if TICK_TIME_SCHED_LIST</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor"></span><a class="code" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645" title="预防全局变量重定义宏，将头文件写成如下这样，然后再程序中的某一个 地方使用::define GLOBAL_VAR，并且包含这个头文件，就能保证定义只存在于 一个地方，其他地方都是extern。 ...">GLOBAL</a> <a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>   m_delayed_list;     </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<a class="code" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645" title="预防全局变量重定义宏，将头文件写成如下这样，然后再程序中的某一个 地方使用::define GLOBAL_VAR，并且包含这个头文件，就能保证定义只存在于 一个地方，其他地方都是extern。 ...">GLOBAL</a> <a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>   m_free_list;        </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<a class="code" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645" title="预防全局变量重定义宏，将头文件写成如下这样，然后再程序中的某一个 地方使用::define GLOBAL_VAR，并且包含这个头文件，就能保证定义只存在于 一个地方，其他地方都是extern。 ...">GLOBAL</a> <a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>   m_ready_list;       </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#if TICK_TIME_SCHED_DLIST</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gaba37c017b26e28426f0abcdea442662d">  147</a></span>&#160;<span class="preprocessor"></span><a class="code" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645" title="预防全局变量重定义宏，将头文件写成如下这样，然后再程序中的某一个 地方使用::define GLOBAL_VAR，并且包含这个头文件，就能保证定义只存在于 一个地方，其他地方都是extern。 ...">GLOBAL</a> <a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>   <a class="code" href="group___mint___o_s___core.html#gaba37c017b26e28426f0abcdea442662d">m_delayed_dlist</a>;    </div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gabcb53b48d3c1363b2fde6dacd43c70a1">  148</a></span>&#160;<a class="code" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645" title="预防全局变量重定义宏，将头文件写成如下这样，然后再程序中的某一个 地方使用::define GLOBAL_VAR，并且包含这个头文件，就能保证定义只存在于 一个地方，其他地方都是extern。 ...">GLOBAL</a> <a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>   <a class="code" href="group___mint___o_s___core.html#gabcb53b48d3c1363b2fde6dacd43c70a1">m_free_ldist</a>;       </div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="code" href="group___mint___o_s___core.html#gab096086e13a9e253ab56b4cd60558c28">  149</a></span>&#160;<a class="code" href="m__os_8h.html#a3de33738fd3c7e77bffbcfaefc3e7645" title="预防全局变量重定义宏，将头文件写成如下这样，然后再程序中的某一个 地方使用::define GLOBAL_VAR，并且包含这个头文件，就能保证定义只存在于 一个地方，其他地方都是extern。 ...">GLOBAL</a> <a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>   <a class="code" href="group___mint___o_s___core.html#gab096086e13a9e253ab56b4cd60558c28">m_ready_dlist</a>;      </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span>{</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___core.html#gafbd3f5df521218d528ae3f1a80413930" title="系统最核心的函数之一：任务调度函数，总是去调度就绪 任务表中优先级最高的任务。简要步骤如下： ">m_sched</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="code" href="group___mint___o_s___port.html#ga6a77b9ae42946da045afe3e357f855e9">  176</a></span>&#160;<span class="preprocessor">#define M_TICKS_PER_SEC 1000            </span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">uint32_t* m_init_sp(m_task task, uint32_t* sp);</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___task.html#gaee35e1ad101682028af05ec6e28d92cb" title="使能任务就绪表 ">m_set_prio</a>(uint32_t <a class="code" href="structm__tcb.html#a6871573fefee3ad102e26a09e7a2f493">prio</a>);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___task.html#ga008c7758d152461807df81ee77121767" title="除能任务就续表 ">m_reset_prio</a>(uint32_t <a class="code" href="structm__tcb.html#a6871573fefee3ad102e26a09e7a2f493">prio</a>);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___task.html#gaeb3c204d44de5540d73865e2950602fc" title="获取最高优先级的任务的优先级，并将其放在m_high_prio中 ">m_get_high_prio</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#if TICK_TIME_SCHED_LIST</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor"></span><span class="keywordtype">void</span> m_add_list(<a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>* list,<a class="code" href="structm__tcb.html" title="Mint OS 任务控制块（TCB）类型定义 ">m_tcb</a>* <a class="code" href="group___mint___o_s___core.html#ga10a06238b9744d26d81bc442bd04e31a">tcb</a>);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keywordtype">void</span> m_rmv_list(<a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>* list,<a class="code" href="structm__tcb.html" title="Mint OS 任务控制块（TCB）类型定义 ">m_tcb</a>* <a class="code" href="structm__tcb.html#a99f13d5b84ed51d001f5f816ece037f2">prev</a>);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="keywordtype">void</span> m_rvs_list(<a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>* list);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">#if TICK_TIME_SCHED_DLIST</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor"></span><span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___time.html#gaedf07b97b4d811464aa445507d4a0736" title="将延时的任务加入到延时链表中，此函数在延时事件发生时被调用 ">m_add_dlist</a>(<a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>* dlist,<a class="code" href="structm__tcb.html" title="Mint OS 任务控制块（TCB）类型定义 ">m_tcb</a>* <a class="code" href="group___mint___o_s___core.html#ga10a06238b9744d26d81bc442bd04e31a">tcb</a>);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___time.html#gac98594436a2fce30343a442795afc856" title="如果某任务中延时ticks降到0，则此函数被调用，删除双向链表中的相对应的tcb。 ">m_rmv_dlist</a>(<a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>* dlist,<a class="code" href="structm__tcb.html" title="Mint OS 任务控制块（TCB）类型定义 ">m_tcb</a>* cur);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___time.html#ga719e08d67fd5ee1e2e4e85aa33bcf28a" title="遍历延时链表，此处由于采用的是双向链表，所以遍历起来比较容易。 ">m_rvs_dlist</a>(<a class="code" href="structm__list.html" title="延时/空闲/阻塞任务链表的表头 ">m_list</a>* dlist);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment">/**********************************************/</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___core.html#gab1cfd88fe1b2942c0b4fa676c71278a7" title="系统初始化函数，一般位于bsp_init()之后，空闲任务在 此函数被创建。 ">m_init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___core.html#gaae465338c3f78114cf562d54bb8e4702" title="系统初始启动函数，一般位于TaskStart（任务启动任务）被 创建之后调用，简要步骤如下： ">m_start</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___core.html#ga5a42b228ec1ff3bb1b109a6b7d0f8c0b" title="进入中断之后可调用，但如若调用，需要与m_exit_int 配对使用。 ">m_enter_int</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___core.html#ga665967eae71ffec258367cbb92758758" title="中断退出函数，与m_enter_int配对使用 ">m_exit_int</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___task.html#gaea8884aaea1a1cd3969667d2d98c6a08" title="任务创建函数 ">m_create_task</a>(<a class="code" href="group___mint___o_s___task.html#ga28e504826d05abef88141f2f038376b2" title="任务的函数指针类型 ">m_task</a> task, uint32_t*  <a class="code" href="structm__tcb.html#a80a5f386a0f7e3ce5babe362e78ac70e">sp</a>, uint32_t <a class="code" href="structm__tcb.html#a6871573fefee3ad102e26a09e7a2f493">prio</a>);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___task.html#ga18abc6ddf321920d4e153112ccb950e2" title="任务删除函数可以删除任意状态的任务，只有当其删除自身（即RUNNING状态），会引起调度。 ">m_delete_task</a>(uint32_t <a class="code" href="structm__tcb.html#a6871573fefee3ad102e26a09e7a2f493">prio</a>);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___time.html#gab39b4dc6702004991ff758a8a7fd12fa" title="延时指定任务优先级延时ticks次“滴答”时钟 ">m_delay_ticks</a>(uint32_t <a class="code" href="structm__tcb.html#a6871573fefee3ad102e26a09e7a2f493">prio</a>, uint32_t <a class="code" href="structm__tcb.html#ab3507a48ae247ff252738ca350810b21">ticks</a>);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___time.html#gabcc3d963f7f7989c18440ce97c2d9fea">m_delay_dhms</a>(uint32_t <a class="code" href="structm__tcb.html#a6871573fefee3ad102e26a09e7a2f493">prio</a>, uint16_t days, uint8_t hours, uint8_t minutes, uint8_t seconds);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___mint___o_s___time.html#ga4d40463178f6a2df0eeeb6b54cd73bc1" title="系统“滴答”函数，在Cortex-M3中，位于系统时钟SysTick_Handler内， 此函数每被调用一次，所有被延时的任务的ticks减1，并将从非0到0的任务设置为就绪。 ...">m_tick_time</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="preprocessor"></span><span class="comment">/******************* (C) COPYLEFT 2013 Ted Lin *****END OF FILE****/</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_02b39093484b0b635d9b808b10017280.html">MintOS</a></li><li class="navelem"><a class="el" href="m__os_8h.html">m_os.h</a></li>
+    <li class="footer">生成于 2013年 九月 9日 星期一 10:36:26 , 为 Mint OS使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
+  </ul>
+</div>
+</body>
+</html>
