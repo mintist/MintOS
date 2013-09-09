@@ -1,0 +1,1 @@
+Mint OS is born of Cortex-M3.
