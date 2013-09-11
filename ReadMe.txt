@@ -1,1 +1,1 @@
-Mint OS×î¾«¼ò°æ¡£
+The original version of Mint OS.
