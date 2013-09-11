@@ -64,6 +64,10 @@ void m_delay_ticks(uint32_t prio, uint32_t ticks)
 	m_add_imlist(&m_delayed_imlist,&tcb[prio]);
 #endif
 
+#if TICK_TIME_SCHED_HTBL
+	m_add_htbl(&m_delayed_htbl,&tcb[prio]);
+#endif
+
 	m_sched();
 }
 
@@ -131,6 +135,9 @@ void m_tick_time(void)
 
 #if TICK_TIME_SCHED_IM_LIST
 	m_rvs_imlist(&m_delayed_imlist);
+#endif
+#if TICK_TIME_SCHED_HTBL
+	m_rvs_htbl(&m_delayed_htbl);
 #endif
 }
 
@@ -341,12 +348,55 @@ void m_rvs_imlist(m_list* list)
 	}
 	else
 	{
-		m_set_prio(list->head->prio);
-		list->head = list->head->next;
-		list->size--;
+		do
+		{
+			m_set_prio(list->head->prio);
+			list->head = list->head->next;
+			list->size--;
+		}while(list->head != NULL && list->head->ticks == 0);
 	}
 }
 #endif
+
+#if TICK_TIME_SCHED_HTBL
+
+void m_add_htbl(m_htbl* htbl,m_tcb* tcb)
+{
+	uint32_t bucket;
+	tcb->ticks += m_time;
+	//hash the key
+	bucket = tcb->ticks % N_TASKS;
+
+	tcb->next = m_delayed_list[bucket].head;
+	m_delayed_list[bucket].head = tcb;
+	m_delayed_list[bucket].size++;
+
+	htbl->size++;
+
+}
+
+void m_rvs_htbl(m_htbl* htbl)
+{
+	uint32_t bucket;
+
+	m_tcb *cur;
+	bucket = m_time % N_TASKS;
+	cur = m_delayed_list[bucket].head;
+	if(cur == NULL)
+		return;
+	while (cur!=NULL && cur->ticks == m_time)
+	{
+		m_set_prio(cur->prio);
+		cur =cur->next;
+		m_delayed_list[bucket].size--;
+		htbl->size--;
+	}
+	m_delayed_list[bucket].head = cur;
+}
+
+#endif
+
+
 
 /**
   * @}

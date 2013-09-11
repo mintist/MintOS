@@ -38,9 +38,6 @@
 #define TASK_SCHED_UCOS256		0		/*!<  ucosii查表法，最大支持256个任务 */
 #define TASK_SCHED_UCOS512		0		/*!<  ucosii查表法，最大支持512个任务 */
 
-#define TASK_SCHED_LIST
-#define TASK_SCHED_HEAP
-
 /**
   * @}
   */
@@ -52,12 +49,11 @@
   */
   
 #define TICK_TIME_SCHED_ARRAY		0	/*!<  采用数组实现m_tick_time */
-
 #define TICK_TIME_SCHED_LIST  		0	/*!<  采用单链表实现m_tick_time */
 #define TICK_TIME_SCHED_DLIST  		0	/*!<  采用双向链表实现m_tick_time */
-#define TICK_TIME_SCHED_IM_LIST		1	/*!<  采用改进的单链表实现m_tick_time */
+#define TICK_TIME_SCHED_IM_LIST		0	/*!<  采用改进的单链表实现m_tick_time */
+#define TICK_TIME_SCHED_HTBL		1	/*!<  采用哈希表实现m_tick_time */
 
-#define TICK_TIME_SCHED_HASH_TABLE
 
 /**
   * @}

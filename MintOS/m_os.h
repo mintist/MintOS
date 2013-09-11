@@ -91,7 +91,7 @@ typedef struct m_tcb{
 #if TICK_TIME_SCHED_DLIST
 	struct m_tcb* prev;			/*!<  延时链表采用双链表 */
 #endif
-#if TICK_TIME_SCHED_DLIST || TICK_TIME_SCHED_LIST || TICK_TIME_SCHED_IM_LIST
+#if TICK_TIME_SCHED_DLIST || TICK_TIME_SCHED_LIST || TICK_TIME_SCHED_IM_LIST || TICK_TIME_SCHED_HTBL
 	struct m_tcb* next;			/*!<  延时链表采用单链表或双链表 */
 #endif
 	
@@ -128,7 +128,7 @@ GLOBAL m_tcb*	m_high_tcb;					/*!<  最高任务tcb指针，在上下文切换�
 GLOBAL uint32_t	m_cur_prio;					/*!<  当前任务优先级 */
 GLOBAL uint32_t	m_high_prio;				/*!<  最高任务优先级 */
 
-GLOBAL uint32_t m_int_nest;					/*!<  中断嵌套层数 */
+GLOBAL uint32_t m_isr_nest;					/*!<  中断嵌套层数 */
 
 GLOBAL uint32_t m_time;						/*!<  系统运行“滴答”数 */
 
@@ -151,6 +151,16 @@ GLOBAL m_list 	m_ready_dlist;		/*!< 就绪任务链表 */
 
 #if TICK_TIME_SCHED_IM_LIST
 GLOBAL m_list 	m_delayed_imlist;	/*!< 延时任务链表 */
+#endif
+
+#if TICK_TIME_SCHED_HTBL
+GLOBAL m_list m_delayed_list[N_TASKS];
+
+typedef struct{
+	uint32_t size;
+}m_htbl;
+
+GLOBAL m_htbl m_delayed_htbl;
 #endif
 
 /**
@@ -211,6 +221,11 @@ void m_add_imlist(m_list* list,m_tcb* tcb);
 void m_rvs_imlist(m_list* list);
 #endif
 
+#if TICK_TIME_SCHED_HTBL
+void m_add_htbl(m_htbl* htbl,m_tcb* tcb);
+void m_rvs_htbl(m_htbl* htbl);
+#endif
+
 /**
   * @}
   */
@@ -228,8 +243,8 @@ void m_rvs_imlist(m_list* list);
 void m_init(void);
 void m_start(void);
 
-void m_enter_int(void);
-void m_exit_int(void);
+void m_enter_isr(void);
+void m_exit_isr(void);
 /**
   * @}
   */

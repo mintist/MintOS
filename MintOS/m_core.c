@@ -103,10 +103,9 @@ void m_sched(void)
   * @param  无
   * @retval 无
   */
-void m_enter_int(void)
+void m_enter_isr(void)
 {
-//	m_enter_critical();
-	m_int_nest++;
+	m_isr_nest++;
 	tcb[m_cur_prio].status = ISR;
 }
 
@@ -115,11 +114,15 @@ void m_enter_int(void)
   * @param  无
   * @retval 无
   */
-void m_exit_int(void)
+void m_exit_isr(void)
 {
-	m_int_nest--;
+	if(m_isr_nest == 0)//防止溢出
+		return;
+	m_isr_nest--;
+	if(m_isr_nest > 0)	//中断嵌套ing
+		return;
+	
 	m_sched();
-//	m_exit_critical();
 }
 
 /**

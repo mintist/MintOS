@@ -24,9 +24,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h" 
 
-extern void	m_enter_int(void);
+extern void	m_enter_isr(void);
 extern void	m_tick_time(void);
-extern void	m_exit_int(void);
+extern void	m_exit_isr(void);
 
  
 void NMI_Handler(void)
@@ -83,9 +83,9 @@ void PendSV_Handler(void)
 
 void SysTick_Handler(void)
 {
-	m_enter_int();
+	m_enter_isr();
 	m_tick_time();
-	m_exit_int();
+	m_exit_isr();
 }
 
 
