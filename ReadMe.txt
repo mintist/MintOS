@@ -1,2 +1,1 @@
-Mint OS is born of Cortex-M3.
-It has 5 different Schedulers.
+Mint OS×î¾«¼ò°æ¡£
